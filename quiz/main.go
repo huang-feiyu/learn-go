@@ -32,22 +32,24 @@ func startQuiz(expressions [][]string, timer *time.Timer) (correct, all int) {
 	correct, all = 0, 0
 
 	for i, expression := range expressions {
-		select {
-		// timer is done
-		case <-timer.C:
-			return
-		// timer-ing
-		default:
-			fmt.Printf("Problem #%d: %s = ", i+1, expression[0])
+		fmt.Printf("Problem #%d: %s = ", i+1, expression[0])
+		answerChannel := make(chan string)
+		all++
+		go func() {
 			var answer string
 			if _, err := fmt.Scan(&answer); err != nil {
 				log.Fatal("Unable to read answer", err)
 			}
+			answerChannel <- strings.TrimSpace(answer)
+		}()
+		select {
+		case <-timer.C:
+			return
+		case answer := <-answerChannel:
 			// remove spaces from answer
-			if strings.ReplaceAll(answer, " ", "") == expression[1] {
+			if answer == expression[1] {
 				correct++
 			}
-			all++
 		}
 	}
 
