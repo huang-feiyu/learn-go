@@ -17,13 +17,18 @@ func main() {
 	}
 	mapHandler := urlshort.MapHandler(pathsToUrls, mux)
 
-	// Build the YAMLHandler using the mapHandler as the
-	// fallback
+	// Build the YAMLHandler using the mapHandler as the fallback
 	yaml := `
 - path: /urlshort
-  url: https://github.com/gophercises/urlshort
+  url: https://github.com/huang-feiyu/urlshort
 - path: /urlshort-final
   url: https://github.com/gophercises/urlshort/tree/solution
+- path: /huang
+  url: https://xn--29s704loyd.com
+- path: /blog
+  url: https://huangblog.com
+- path: /github
+  url: https://github.com/huang-feiyu
 `
 	yamlHandler, err := urlshort.YAMLHandler([]byte(yaml), mapHandler)
 	if err != nil {
