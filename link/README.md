@@ -11,4 +11,4 @@ Link {
 }
 ```
 
-It seems very easy.
+It seems very easy. And it is.
