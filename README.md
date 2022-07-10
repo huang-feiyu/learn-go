@@ -11,7 +11,12 @@
 
 <img src="https://gophercises.com/img/gophercises_punching.gif" alt="gophercises" width="250">
 
-* ex1: [quiz](./quiz)
-* ex2: [urlshort](./urlshort/)
-* ex3: [cyoa](./cyoa)
-* ex4: [link](./link)
+* ex1: [quiz](./gophercises/quiz)
+* ex2: [urlshort](./gophercises/urlshort/)
+* ex3: [cyoa](./gophercises/cyoa)
+* ex4: [link](./gophercises/link)
+
+## design philosophy
+
+> [Go 语言设计哲学](https://golang3.eddycjy.com/)
+
