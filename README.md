@@ -20,3 +20,15 @@
 
 > [Go 语言设计哲学](https://golang3.eddycjy.com/)
 
+* Less is more
+* Oriented to Software Engineering
+* Interface (Duck Type)
+* Goroutine
+* Explicit rather than metaphor
+
+## building microservices
+
+> [Build Microservices with Go](https://www.youtube.com/playlist?list=PLmD8u-IFdreyh6EUfevBcbiuCKzFk0EW_)
+
+* ep1: [product-api](./product-api)
+
