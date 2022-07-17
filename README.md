@@ -30,7 +30,5 @@
 
 > [Build Microservices with Go](https://www.youtube.com/playlist?list=PLmD8u-IFdreyh6EUfevBcbiuCKzFk0EW_)
 
-* intro2ms: introduction to microservices
-    * ep1: [product-api](./product-api)
-    * ep2: [product-api](./product-api)
+[microservices](./microservices)
 
