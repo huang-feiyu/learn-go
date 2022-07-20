@@ -1,3 +1,5 @@
-module huangblog.com/product-api
+module huangblog.com/microservice/product-api
 
 go 1.18
+
+require github.com/gorilla/mux v1.8.0 // direct

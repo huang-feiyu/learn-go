@@ -8,7 +8,8 @@ import (
 	"os/signal"
 	"time"
 
-	"huangblog.com/product-api/handlers"
+	"github.com/gorilla/mux"
+	"huangblog.com/microservice/product-api/handlers"
 )
 
 func main() {
@@ -16,9 +17,18 @@ func main() {
 	ph := handlers.NewProducts(l)
 
 	// sm mux. it is created by default, but we can create our own.
-	sm := http.NewServeMux()
-	// register the handler
-	sm.Handle("/", ph)
+	sm := mux.NewRouter()
+
+	getRouter := sm.Methods(http.MethodGet).Subrouter()
+	getRouter.HandleFunc("/", ph.GetProducts)
+
+	putRouter := sm.Methods(http.MethodPut).Subrouter()
+	putRouter.HandleFunc("/{id:[0-9]+}", ph.UpdateProducts)
+	putRouter.Use(ph.MiddlewareProductValidation)
+
+	postRouter := sm.Methods(http.MethodPost).Subrouter()
+	postRouter.HandleFunc("/", ph.AddProducts)
+	postRouter.Use(ph.MiddlewareProductValidation)
 
 	s := &http.Server{
 		Addr:         ":9090",
